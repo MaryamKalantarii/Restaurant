@@ -4,24 +4,49 @@ from django.db import models
 
 
 class Service(models.Model):
-    pass
+    title = models.CharField(max_length=100)
+    content =models.CharField(max_length=200)
+    film = models.FileField(upload_to='Film', default='film')
 
+    def __str__(self):
+        return self.title
 
 
 class Menu(models.Model):
-    pass
+    image = models.ImageField(upload_to='Menu',default='Menu.jpg')
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=200)
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
 
 
 
 
 class MenuSpecials(models.Model):
-    pass
+    image = models.ImageField(upload_to='MenuSpecials',default='MenuSpecials.jpg')
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=200)
+    content2 = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+    
 
 
 
 
 class EventsRestaurant(models.Model):
-    pass
+    image = models.ImageField(upload_to='Event',default='Event.jpg')
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=200)
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
 
 
 
@@ -46,7 +71,7 @@ class Chefs(models.Model):
     pass
 
 
-class ContactUs (models.Model):
+class ContactUs(models.Model):
     pass
 
 

@@ -93,6 +93,16 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% if request.user.is_authenticated %}
+          <li>loged as {{request.user.username}}</li>
+          <li><img src={{request.user.image.url}}></li>
+          <li><a href={% url 'accounts:logout' %}>Logout</a></li>
+          <li><a href={% url 'password_change' %}>change password</a></li>
+          {% else %}
+          <li><a href={% url 'accounts:login' %}>Login</a></li>
+          <li><a href={% url 'accounts:signup' %}>signup</a></li>
+          {% endif %}
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
