@@ -82,9 +82,9 @@ class Order(models.Model):
 
 
 
-class PhotosRestaurant:
-    gallery = models.ImageField(upload_to='Gallery')
-
+class PhotosRestaurant(models.Model):
+    gallery = models.ImageField(upload_to='Gallery',default='gallery')
+    
 
 
 
