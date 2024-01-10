@@ -4,10 +4,17 @@ import datetime
 # Create your models here.
 
 
+class Film(models.Model):
+    film = models.FileField(upload_to='Film', default='film')
+
+
+
 class Service(models.Model):
     title = models.CharField(max_length=100)
     content =models.CharField(max_length=200)
-    film = models.FileField(upload_to='Film', default='film')
+    status = models.BooleanField(default=False)
+
+    
 
     def __str__(self):
         return self.title
@@ -25,6 +32,8 @@ class Menu(models.Model):
     content = models.CharField(max_length=200)
     price = models.IntegerField(default=0)
     category = models.ManyToManyField(Category)
+    status = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.title
@@ -39,6 +48,7 @@ class MenuSpecials(models.Model):
     content = models.CharField(max_length=200)
     content2 = models.CharField(max_length=200)
     category = models.ManyToManyField(Category)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -52,6 +62,8 @@ class EventsRestaurant(models.Model):
     title = models.CharField(max_length=100)
     content = models.CharField(max_length=200)
     price = models.IntegerField(default=0)
+    status = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.title
@@ -83,7 +95,9 @@ class Order(models.Model):
 
 
 class PhotosRestaurant(models.Model):
-    gallery = models.ImageField(upload_to='Gallery',default='gallery')
+    gallery = models.ImageField(upload_to='Gallery')
+    status = models.BooleanField(default=False)
+
     
 
 
@@ -105,6 +119,8 @@ class Chefs(models.Model):
     linkdin = models.CharField(max_length=255, default='#')
     status = models.BooleanField(default=False)
     updated_datetime = models.DateTimeField(auto_now=True)
+    
+
 
     def __str__(self):
         return self.info.email
