@@ -87,17 +87,6 @@ class Order(models.Model):
 
 
 
-
-
-# class Comment(models.Model):
-#     pass
-
-
-
-class PhotosRestaurant(models.Model):
-    gallery = models.ImageField(upload_to='Gallery')
-    status = models.BooleanField(default=False)
-
     
 
 
@@ -138,9 +127,9 @@ class ContactUs(models.Model):
 
 class RestaurantInformation(models.Model):
     location = models.CharField(max_length=250)
-    open_hours:models.DateTimeField(default=datetime.datetime.now)
-    email:models.EmailField()
-    call:models.IntegerField(max_length=15)
+    open_hours=models.DateTimeField(default=datetime.datetime.now)
+    email=models.EmailField()
+    call=models.CharField(max_length=15)
 
 
 
